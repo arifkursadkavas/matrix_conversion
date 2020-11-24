@@ -14,26 +14,35 @@ document.addEventListener('DOMContentLoaded',  function (){
        }
        
     }
-
-    
-    
     
     function readFile(file){
         var reader = new FileReader();
     
         reader.addEventListener('load', function (e) {
             console.log(e.target.result);
-            const output = document.getElementsByClassName('inputText')[0].textContent = e.target.result;
+            document.getElementsByClassName('inputText')[0].textContent = e.target.result;
 
             const mtx = storeAsMatrix(e.target.result);
 
             const converted = convertMatrix(mtx);
 
-            console.log("Converted:",converted);
+            //console.log(converted);
+
+            const outputString = converted.reduce(
+                (acc,c) => {
+                    acc += c.join(',')+ '\n';
+                    return acc;
+                }, '');
+
+            document.getElementsByClassName('outputText')[0].textContent = outputString;
 
         });
         
         reader.readAsBinaryString(file);
+    }
+
+    function writeUIFormatted(elementClass, data){
+
     }
 
 
