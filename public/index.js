@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',  function (){
         var reader = new FileReader();
     
         reader.addEventListener('load', function (e) {
-            console.log(e.target.result);
+            //console.log(e.target.result);
             document.getElementsByClassName('inputText')[0].textContent = e.target.result;
 
             const mtx = storeAsMatrix(e.target.result);
@@ -39,10 +39,6 @@ document.addEventListener('DOMContentLoaded',  function (){
         });
         
         reader.readAsBinaryString(file);
-    }
-
-    function writeUIFormatted(elementClass, data){
-
     }
 
 
@@ -77,7 +73,7 @@ document.addEventListener('DOMContentLoaded',  function (){
     }
 
     function initEmptyMtx(row,col){
-        console.log(row,col);
+        //console.log(row,col);
 
         var arr = new Array(row);
         for(var i = 0; i < arr.length; i++){
@@ -110,9 +106,9 @@ document.addEventListener('DOMContentLoaded',  function (){
             }
         }
 
-        console.log('Sum', sum);
-        console.log('Cnt', cnt);
-        console.log('Average', sum/cnt);
+        //console.log('Sum', sum);
+        //console.log('Cnt', cnt);
+        //console.log('Average', sum/cnt);
 
         return sum / cnt; // return the average of neighbours
     }
